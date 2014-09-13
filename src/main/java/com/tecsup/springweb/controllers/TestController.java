@@ -5,15 +5,13 @@
 package com.tecsup.springweb.controllers;
 
 import com.tecsup.springweb.model.Programa;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -63,4 +61,21 @@ public class TestController {
     public String pruebas() {
         return "test/pruebas";
     }
+    
+    @RequestMapping("programa")
+    public String programa() {
+        return "test/programa";
+    }
+    
+    @RequestMapping("programaAjax")
+    public String programaAjax() {
+        return "test/programaAjax";
+    }
+    
+    @ResponseBody
+    @RequestMapping("guardarPrograma")
+    public String guardarPrograma(Programa programa){
+        return programa.getNombre() + " " + programa.getCodigo();
+    }
+            
 }
